@@ -11,7 +11,7 @@ data: { content:$("#content").val(),translation:$("#translation").val()},//请�
 dataType: "json",//以json格式返回的数据，不是json就把此行去掉
 success: function(data){
 console.log(data)
-  var data = msg.data;
+
             for (var i = 0, j = data.length; i < j; i++)
                 $('#talkUserList').append('<li>' + data[i].content + data[i].translation'</li>');
 }
