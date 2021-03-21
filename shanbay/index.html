@@ -4,17 +4,16 @@
   <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js">
 <head>
 <script>
-  function shanbay(){
+ window.οnlοad=function(){
 $.ajax({
 type: "POST",
 url: "https://rest.shanbay.com/api/v2/quote/quotes/today/",
-data: { content:$("#content").val(),translation:$("#translation").val()},//请求的参数
-dataType: "json",//以json格式返回的数据，不是json就把此行去掉
+dataType: "json",   
 success: function(data){
-console.log(data)
-
-            for (var i = 0, j = data.length; i < j; i++)
-                $('#talkUserList').append('<li>' + data[i].content + data[i].translation'</li>');
+var content="<b>"+data.content+"</b>"
+var translation="<b>"+data.translation+"</b>"
+           $("p").append(content)，
+           $("p").append(translation)
 }
 });}
 </script>
