@@ -4,6 +4,7 @@
   <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js">
 <head>
 <script>
+  function shanbay(){
 $.ajax({
 type: "POST",
 url: "https://rest.shanbay.com/api/v2/quote/quotes/today/",
@@ -15,7 +16,7 @@ console.log(data)
             for (var i = 0, j = data.length; i < j; i++)
                 $('#talkUserList').append('<li>' + data[i].content + data[i].translation'</li>');
 }
-});
+});}
 </script>
 </head>
 
