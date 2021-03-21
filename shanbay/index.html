@@ -10,7 +10,7 @@ url: "https://rest.shanbay.com/api/v2/quote/quotes/today/",
 data: { content:$("#content").val(),translation:$("#translation").val()},//请求的参数
 dataType: "json",//以json格式返回的数据，不是json就把此行去掉
 success: function(data){
-window.document.write
+console.log(data)
 }
 });
 </script>
