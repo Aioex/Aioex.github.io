@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 
 <html>
-  <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js">
 <head>
-
+<title>每日英语</title>
 </head>
-
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <body>
   
   <script type="text/javascript">
@@ -17,22 +16,17 @@
    method:"post",
    url:"https://rest.shanbay.com/api/v2/quote/quotes/today/",/*这里要写nginx访问的全路径*/
    data:{},
-   dataType: "json",
+
    success: function(data){
-    var str="<ul>";  
-    $.each(data,function(i,items){   
-    str+="<li>"+"ID："+items.content+"</li>";
-    str+="<li>"+"姓名："+items.translation+"</li>"; 
-    });         
-    str+="</ul>";   
-    $("div").append(str); 
+    
+    $("div").append(data); 
    }
     
   });
   
   })
  </script>
-<h2>扇贝</h2>
+
 </body>
 
 </html>
