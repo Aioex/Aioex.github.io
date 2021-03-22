@@ -15,18 +15,18 @@
     $.ajax({
    method:"post",
    url:"https://rest.shanbay.com/api/v2/quote/quotes/today/",/*这里要写nginx访问的全路径*/
-   data:{},
+
 
    success: function(data){
     
-    $(".result").html(data);
+    $("#content").prepend(data.data);
    }
     
   });
   
   })
  </script>
-
+<div id="content"></div>
 </body>
 
 </html>
