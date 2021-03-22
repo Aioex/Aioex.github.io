@@ -3,23 +3,35 @@
 <html>
   <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js">
 <head>
-<script>
- window.οnlοad=function(){
-$.ajax({
-type: "POST",
-url: "https://rest.shanbay.com/api/v2/quote/quotes/today/",
-dataType: "json",   
-success: function(data){
-var content="<b>"+data.content+"</b>"
-var translation="<b>"+data.translation+"</b>"
-           $("p").append(content)，
-           $("p").append(translation)
-}
-});}
-</script>
+
 </head>
 
-<body onload="myFunction()">
+<body>
+  
+  <script type="text/javascript">
+  window.οnlοad=function(){
+  //js代码请求
+  }
+  $(function(){
+    $.ajax({
+   method:"post",
+   url:"https://rest.shanbay.com/api/v2/quote/quotes/today/",/*这里要写nginx访问的全路径*/
+   data:{},
+   dataType: "json",
+   success: function(data){
+    var str="<ul>";  
+    $.each(data,function(i,items){   
+    str+="<li>"+"ID："+items.content+"</li>";
+    str+="<li>"+"姓名："+items.translation+"</li>"; 
+    });         
+    str+="</ul>";   
+    $("div").append(str); 
+   }
+    
+  });
+  
+  })
+ </script>
 <h2>扇贝</h2>
 </body>
 
