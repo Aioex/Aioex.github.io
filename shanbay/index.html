@@ -10,21 +10,13 @@
   <script type="text/javascript">
   window.οnlοad=function(){
   //js代码请求
+    var url3 = 'https://rest.shanbay.com/api/v2/quote/quotes/today/';  
+       $.get(url3,function(data){  
+  alert(data);
+        
+       }); 
   }
-  $(function(){
-    $.ajax({
-   method:"post",
-   url:"https://rest.shanbay.com/api/v2/quote/quotes/today/",/*这里要写nginx访问的全路径*/
-
-
-   success: function(data){
-    
-    $("#content").prepend(data.data);
-   }
-    
-  });
   
-  })
  </script>
 <div id="content"></div>
 </body>
