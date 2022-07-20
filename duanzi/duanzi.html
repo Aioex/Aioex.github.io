@@ -11,11 +11,9 @@
 		
 var oReq = new XMLHttpRequest();
 
-oReq.onload = function(e) {
-  var arraybuffer = oReq.response; 
-}
+
 oReq.open("GET", "https://www.yduanzi.com/duanzi/getduanzi");
-oReq.responseType = "arraybuffer";
+oReq.responseType = "json";
 oReq.send();
 oReq.onreadystatechange = function () {
 var jsonStr = oReq.responseText;
