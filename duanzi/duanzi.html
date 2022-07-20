@@ -11,7 +11,11 @@
 		async function getJSON() {
   let url = 'https://www.yduanzi.com/duanzi/getduanzi';
   try {
-    let response = await fetch(url);
+    let response = await fetch(url,{
+  method: 'post',
+  headers: {
+    "Content-type": "text/html; charset=utf-8"
+  }});
     return await response.json();
   } catch (error) {
     console.log('Request Failed', error);
