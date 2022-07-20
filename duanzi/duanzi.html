@@ -9,19 +9,19 @@
 		window.onload=duanzi();
 	function duanzi(){
 		
-  let url = 'https://www.yduanzi.com/duanzi/getduanzi';
-fetch(url,{
-  method: 'post',
-  headers: {
-    "Content-type": "text/html; charset=utf-8"
-  }}).then(function(res){
-  return res.json(); //error here
-}).then(function(data){
-  console.log(data);
-}).catch((error) => {
-  console.log(error);
-});
+var oReq = new XMLHttpRequest();
 
+oReq.onload = function(e) {
+  var arraybuffer = oReq.response; // 不是 responseText ！
+  /* ... */
+}
+oReq.open("GET", "https://www.yduanzi.com/duanzi/getduanzi");
+oReq.responseType = "arraybuffer";
+oReq.send();
+oReq.onreadystatechange = function () {
+var jsonStr = oReq.responseText;
+	console.log("结果"，jsonStr);
+}
 		}
 	</script>
 
