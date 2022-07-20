@@ -16,7 +16,7 @@ oReq.open("GET", "https://www.yduanzi.com/duanzi/getduanzi",true);
 
 oReq.onreadystatechange = function () {
 var jsonStr = oReq.responseText;
-	console.log("结果",jsonStr);
+	document.write("结果");
 }
 		oReq.send();
 		}
