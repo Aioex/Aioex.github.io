@@ -8,7 +8,12 @@
 		window.onload=duanzi();
 	function duanzi(){
 		fetch('https://www.yduanzi.com/duanzi/getduanzi')
-  	.then(response => response.json()).then(json => console.log(json))
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(myJson) {
+    console.log(myJson);
+  });
     
 
 		}
