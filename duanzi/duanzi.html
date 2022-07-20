@@ -5,9 +5,8 @@
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script>
 		alert("hhaha");
-	function tc(){
-		alert("nihao");
-	}
+		window.onload=duanzi();
+	function duanzi(){
 	const result=document.getElementbyid("result");
 		result.addEventListener("duanzi",function(){
 		const xhr=new XMLHttpRequest();
@@ -15,8 +14,10 @@
 			xhr.send();
 			xhr.onreadystatechange=function(){
 			result.innerHTML=xhr.response;
+				alert(result);
 			}
 		})
+		}
 	</script>
 
   </head>
@@ -24,7 +25,7 @@
     
 <div>
   <span>{{result}}</span>
-  <input type="button" value="duanzi" onclick="tc()" />
+  <input type="button" value="duanzi" onclick="duanzi()" />
     </div>
   
   </body>
