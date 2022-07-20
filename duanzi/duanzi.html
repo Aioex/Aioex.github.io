@@ -8,20 +8,19 @@
 		
 		window.onload=duanzi();
 	function duanzi(){
-		async function getJSON() {
+		
   let url = 'https://www.yduanzi.com/duanzi/getduanzi';
-  try {
-    let response = await fetch(url,{
+fetch(url,{
   method: 'post',
   headers: {
     "Content-type": "text/html; charset=utf-8"
-  }});
-    return await response.json();
-  } catch (error) {
-    console.log('请求错误', error);
-  }
-}
-console.log("getjson",getJSON());	
+  }}).function(res){
+  return res.json(); //error here
+}).then(function(data){
+  console.log(data);
+}).catch((error) => {
+  console.log(error);
+});
 
 		}
 	</script>
