@@ -13,7 +13,6 @@ var oReq = new XMLHttpRequest();
 
 
 oReq.open("GET", "https://www.yduanzi.com/duanzi/getduanzi");
-oReq.responseType = "json";
 oReq.send();
 oReq.onreadystatechange = function () {
 var jsonStr = oReq.responseText;
