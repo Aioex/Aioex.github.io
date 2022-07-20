@@ -9,16 +9,16 @@
 		window.onload=duanzi();
 	function duanzi(){
 		
-var oReq = new XMLHttpRequest();
+var xhr = new XMLHttpRequest();
 
 
-oReq.open("GET", "https://www.yduanzi.com/duanzi/getduanzi",true);
+xhr.open("GET","https://www.yduanzi.com/duanzi/getduanzi",true);
 
-oReq.onreadystatechange = function () {
-var jsonStr = oReq.responseText;
-	document.write("结果");
+xhr.onreadystatechange = function () {
+var jsonStr = xhr.responseText;
+	alert(jsonStr);
 }
-		oReq.send();
+		xhr.send();
 		}
 	</script>
 
