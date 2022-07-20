@@ -12,8 +12,7 @@
 var oReq = new XMLHttpRequest();
 
 oReq.onload = function(e) {
-  var arraybuffer = oReq.response; // 不是 responseText ！
-  /* ... */
+  var arraybuffer = oReq.response; 
 }
 oReq.open("GET", "https://www.yduanzi.com/duanzi/getduanzi");
 oReq.responseType = "arraybuffer";
