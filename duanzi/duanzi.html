@@ -12,7 +12,7 @@
 var oReq = new XMLHttpRequest();
 
 
-oReq.open("GET", "https://www.yduanzi.com/duanzi/getduanzi");
+oReq.open("GET", "https://www.yduanzi.com/duanzi/getduanzi",true);
 oReq.send(null);
 oReq.onreadystatechange = function () {
 var jsonStr = oReq.responseText;
