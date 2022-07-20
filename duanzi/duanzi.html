@@ -9,16 +9,7 @@
 		window.onload=duanzi();
 	function duanzi(){
 		
-var xhr = new XMLHttpRequest();
-
-
-xhr.open("GET","https://www.yduanzi.com/duanzi/getduanzi",true);
-
-xhr.onreadystatechange = function () {
-var jsonStr = xhr.responseText;
-	alert(jsonStr);
-}
-		xhr.send();
+fetch("http://www.yduanzi.com/duanzi/getduanzi").then(function(response){console.log("jieguo",response)})
 		}
 	</script>
 
