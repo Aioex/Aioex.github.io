@@ -4,28 +4,22 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script>
-
-   var httpRequest = new XMLHttpRequest();//第一步：创建需要的对象
-httpRequest.open('POST', 'http://www.yduanzi.com/duanzi/getduanzi', true); //第二步：打开连接
-httpRequest.setRequestHeader("Content-type","application/x-www-form-urlencoded");//设置请求头 注：post方式必须设置请求头（在建立连接后设置请求头）
-httpRequest.send('null');//发送请求 将情头体写在send中
-/**
- * 获取数据后的处理程序
- */
-httpRequest.onreadystatechange = function () {//请求后的回调接口，可将请求成功后要执行的程序写在其中
-    if (httpRequest.readyState == 4 && httpRequest.status == 200) {//验证请求是否发送成功
-        var json = httpRequest.responseText;//获取到服务端返回的数据
-        console.log(json);
-	    json.append();
-    }
-};
+	const result=document.getElementbyid("result");
+		result.addEventListener("duanzi",function(){
+		const xhr=new XMLHttpRequest();
+			xhr.open('post','http://www.yduanzi.com/duanzi/getduanzi');
+			xhr.send();
+			xhr.onreadystatechange=function(){
+			result.innerHTML=xhr.response;
+			}
+		})
 	</script>
 
   </head>
   <body>
     
 <div>
-  <span>{{json}}</span>
+  <span>{{result}}</span>
   <input type="button" value="duanzi" onclick="duanzi" />
     </div>
   
