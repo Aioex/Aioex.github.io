@@ -1,6 +1,25 @@
 <html lang="zh-cn">
   123
-<div></div>
+  <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+		function doPost("http://www.yduanzi.com/duanzi/getduanzi")
+		{
+			var val1 = document.getElementsByName("key1").value;
+			var val2 = document.getElementsByName("key2").value;
+
+			$.post("http://www.yduanzi.com/duanzi/getduanzi", {'key1':val1, 'key2':val2});
+		}
+	</script>
+
+  </head>
+  <body>
+    
+<div>
+  <span>{{val1}}</span>
+  <input type="button" value="submit" onclick="doPost('/')" />
+    </div>
   
-  
+  </body>
 </html>
