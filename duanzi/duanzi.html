@@ -1,50 +1,29 @@
-<!DOCTYPE html>
-<html lang="zh-cn">
-  段子
+<!doctype html>
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<script type="text/javascript"src="https://cdn.jsdelivr.net/npm/brython@3.8.9/brython.min.js"></script>
-	<script type="text/python">
-	document <= "你所需要显示的文本";
-	</script>
-	
-	<script>
-	window.onload=getDuanzi();
-		
-	 //获取段子
-    function getDuanzi(){    
-	    var oDuanziText=document.getElementById('duanzi-text');
-        var fd = new FormData();		//文件
-        var req=new XMLHttpRequest();
-        req.open('POST','https://www.yduanzi.com/duanzi/getduanzi',true);//异步ajax
-        // fd.append('d',om['d']);
-    
-        req.onreadystatechange=function(){					    	
-            if(req.readyState==4 && req.status==200){
-                if(JSON.parse(req.response)['error']){
-                    alert(JSON.parse(req.responseText)["error"],5000);
-                    return false;						    		
-                }
-                else {                                   
-                    var duanzi=JSON.parse(req.response);	
-                    oDuanziText.innerHTML=duanzi['duanzi'];	
-                    
-                  
-                }
-            }
-        }
-        //req.setRequestHeader("Content-Type","application/x-www-form-urlencoded;charset=UTF-8");
-        req.send(fd);    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <title>异步加载地图</title>
+    <link rel="stylesheet" href="https://cache.amap.com/lbs/static/main1119.css"/>
+</head>
+<body>
+<div id="container"></div>
+<script>
+    function onApiLoaded(){
+        var map = new AMap.Map('container', {
+            center: [117.000923, 36.675807],
+            zoom: 6
+        });
+        map.plugin(["AMap.ToolBar"], function() {
+            map.addControl(new AMap.ToolBar());
+        });
     }
-	</script>
-
-  </head>
-  <body>
-    
-<div>
-	<span id='duanzi-text'></span>
-  <input type="button" value="duanzi" onclick="getDuanzi()" />
-    </div>
-  
-  </body>
+     var url = 'https://webapi.amap.com/maps?v=1.4.15&key=您申请的key值&callback=onApiLoaded';
+    var jsapi = document.createElement('script');
+    jsapi.charset = 'utf-8';
+    jsapi.src = url;
+    document.head.appendChild(jsapi);
+</script>
+</body>
 </html>
