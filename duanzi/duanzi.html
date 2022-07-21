@@ -11,15 +11,8 @@
 <div id="container"></div>
 <script>
     function onApiLoaded(){
-        var map = new AMap.Map('container', {
-            center: [117.000923, 36.675807],
-            zoom: 6
-        });
-        map.plugin(["AMap.ToolBar"], function() {
-            map.addControl(new AMap.ToolBar());
-        });
-    }
-     var url = 'https://webapi.amap.com/maps?v=1.4.15&key=您申请的key值&callback=onApiLoaded';
+        
+     var url = 'https://www.yduanzi.com/duanzi/getduanzi';
     var jsapi = document.createElement('script');
     jsapi.charset = 'utf-8';
     jsapi.src = url;
