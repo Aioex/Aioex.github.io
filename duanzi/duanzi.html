@@ -9,20 +9,40 @@
 	</script>
 	
 	<script>
+	window.onload=duanzi();
 		
-		
-		window.onload=duanzi();
-	function duanzi(){
-		
-fetch("https://www.yduanzi.com/duanzi/getduanzi:7890").then(function(response){console.log("jieguo",response)})
-		}
+	 //获取段子
+    function getDuanzi(){    
+	    var oDuanziText=document.getElementById('duanzi-text');
+        var fd = new FormData();		//文件
+        var req=new XMLHttpRequest();
+        req.open('POST','https://www.yduanzi.com/duanzi/getduanzi',true);//异步ajax
+        // fd.append('d',om['d']);
+    
+        req.onreadystatechange=function(){					    	
+            if(req.readyState==4 && req.status==200){
+                if(JSON.parse(req.response)['error']){
+                    alert(JSON.parse(req.responseText)["error"],5000);
+                    return false;						    		
+                }
+                else {                                   
+                    var duanzi=JSON.parse(req.response);	
+                    oDuanziText.innerHTML=duanzi['duanzi'];	
+                    
+                  
+                }
+            }
+        }
+        //req.setRequestHeader("Content-Type","application/x-www-form-urlencoded;charset=UTF-8");
+        req.send(fd);    
+    }
 	</script>
 
   </head>
   <body>
     
 <div>
-  <span>{{result}}</span>
+	<span id='duanzi-text'></span>
   <input type="button" value="duanzi" onclick="duanzi()" />
     </div>
   
