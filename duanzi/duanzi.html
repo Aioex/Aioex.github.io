@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <script type="text/javascript">
+        window.onload=function duanzi(){
         let script = document.createElement('script');
 
 script.src = 'http://www.yduanzi.com/duanzi/getduanzi?callback=callback';
@@ -13,9 +14,11 @@ document.body.appendChild(script);
 function callback(res) {
   console.log(res);
 }
+        }
+             
     </script>
 </head>
 <body>
-<button>段子</button>
+<button type="button" onclick="duanzi()">段子</button>
 </body>
 </html>
