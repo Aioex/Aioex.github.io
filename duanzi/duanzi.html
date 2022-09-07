@@ -3,44 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-<script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js">
+</script>
 <script>
-
-var vue = new Vue({
-  el: '#demo',
-  data: {
-    firstName:'',
-    list :null
-    },
-    watch: {
-      firstName:function (newValue, oldValue) {
-        console.log("变化了",newValue, oldValue);
-        this.getList();
-        }
-    },
-    methods:{
-      getList: function () {
-        var v =this;
-        axios.get('https://github.com/Aioex/Aioex.github.io/blob/main/wpsh/qun',
-          {
-            params:{id:'1'}
-          }).then(function (response){
-              console.log("正常返回：",response);
-              var data = response.data;
-              var code = data.code;
-              if(code === '00000') {
-                v.list = data.data;
-              }
-            }).catch(function (error) {
-              console.log("报错了",error)
-            })
-      }
-    }
-});
+    window.onload=duanzi();
+function duanzi(){
+$.ajax({
+		url:"https://github.com/Aioex/Aioex.github.io/blob/main/wpsh/qun",
+		type:"get",
+		data:{
+			
+		},
+		success:function(res){
+			debugger
+		},
+		error:function(err){
+			debugger
+		}
+	})
+}
+</script>
 </head>
 <body>
-<button type="button" onclick="getList()">段子</button>
+<button type="button" onclick="duanzi()">段子</button>
 </body>
 </html>
